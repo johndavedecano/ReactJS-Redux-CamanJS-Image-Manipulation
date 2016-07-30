@@ -1,0 +1,3 @@
+export const IMAGE_LOADED = "IMAGE_LOADED";
+export const IMAGE_FILTERS = "IMAGE_FILTERS";
+export const IMAGE_OBJECT_SAVED = "IMAGE_OBJECT_SAVED";
