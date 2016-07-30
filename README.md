@@ -1,5 +1,8 @@
 # ReactJS CamanJS - Image Manipulation
 A very simple image manipulation application using ReactJS and CamanJS
+
+![Screenshot](https://raw.githubusercontent.com/johndavedecano/ReactJS-Redux-CamanJS-Image-Manipulation/master/screenshot.png)
+
 ##Technology Stack
 1. NodeJS
 2. ReactJS + Redux
