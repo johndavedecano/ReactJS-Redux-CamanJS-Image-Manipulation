@@ -6,7 +6,6 @@ A very simple image manipulation application using ReactJS and CamanJS
 3. Crop and Resize - Coming Soon
 
 ![Screenshot](https://raw.githubusercontent.com/johndavedecano/ReactJS-Redux-CamanJS-Image-Manipulation/master/screenshot.png)
-![Screenshot2](https://raw.githubusercontent.com/johndavedecano/ReactJS-Redux-CamanJS-Image-Manipulation/master/screenshot2.png)
 
 ##Technology Stack
 1. NodeJS
