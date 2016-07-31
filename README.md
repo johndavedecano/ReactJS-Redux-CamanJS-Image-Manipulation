@@ -1,7 +1,12 @@
 # ReactJS CamanJS - Image Manipulation
 A very simple image manipulation application using ReactJS and CamanJS
+## Features
+1. Basic Filters - hue, saturation, vibrance, brightness
+2. Preset Filters
+3. Crop and Resize - Coming Soon
 
 ![Screenshot](https://raw.githubusercontent.com/johndavedecano/ReactJS-Redux-CamanJS-Image-Manipulation/master/screenshot.png)
+![Screenshot2](https://raw.githubusercontent.com/johndavedecano/ReactJS-Redux-CamanJS-Image-Manipulation/master/screenshot2.png)
 
 ##Technology Stack
 1. NodeJS
