@@ -10,6 +10,66 @@ class Settings extends Component {
 		this.onResetCanvas = this.onResetCanvas.bind(this);
 		this.resetCanvas = this.resetCanvas.bind(this);
 		this.onSaveCanvas = this.onSaveCanvas.bind(this);
+		this.applyPresetFilter = this.applyPresetFilter.bind(this);
+	}
+	componentDidMount() {
+		this.regiterCustomFilters();
+	}
+	/**
+	 * Register some preset filters
+	 * @return {void}
+	 */
+	regiterCustomFilters() {
+		Caman.Filter.register("emboss", function (adjust) {
+			return this.processKernel("Emboss", [-2, -1, 0, -1, 1, 1, 0, 1, 2]);
+		});
+		Caman.Filter.register("vintage", function (adjust) {
+	        if (adjust == null) {
+	            adjust = true
+	        }
+	        this.greyscale();
+	        this.contrast(5);
+	        this.noise(3);
+	        this.sepia(100);
+	        this.channels({
+	            red: 8,
+	            blue: 2,
+	            green: 4
+	        });
+	        this.gamma(0.87);
+	        if (adjust) {
+	            return this.vignette("40%", 30);
+	        }
+		});
+		Caman.Filter.register("lomo", function (adjust) {
+	        if (adjust == null) {
+	            adjust = true
+	        }
+	        this.brightness(15);
+	        this.exposure(15);
+	        this.curves("rgb", [0, 0], [200, 0], [155, 255], [255, 255]);
+	        this.saturation(-20);
+	        this.gamma(1.8);
+	        if (adjust) {
+	            this.vignette("50%", 60);
+	        }
+	        return this.brightness(5);
+		});
+	}
+	/**
+	 * Apply preset handler.
+	 * @param  {Event} e
+	 * @return {void}
+	 */
+	applyPresetFilter(e) {
+		e.preventDefault();
+		const filter = e.target.getAttribute('data-filter');
+		let canvas = document.getElementById('canvas');
+		this.resetCanvas(canvas);
+		Caman('#canvas', function() {
+			this.replaceCanvas(canvas);
+			this[filter]().render();
+		});
 	}
 	/**
 	 * Save handler for canvas.
@@ -119,6 +179,18 @@ class Settings extends Component {
 			<div ref="settings" id="settings">
 				<h3>Filters</h3>
 				<div className="row">
+					<div className="col-md-12 form-group">
+						<label>Presets</label>
+						<button className="btn btn-small btn-block btn-default" 
+							data-filter="vintage"
+							onClick={this.applyPresetFilter}>Vintage</button>
+						<button className="btn btn-small btn-block btn-default" 
+							data-filter="emboss"
+							onClick={this.applyPresetFilter}>Emboss</button>
+						<button className="btn btn-small btn-block btn-default" 
+							data-filter="lomo"
+							onClick={this.applyPresetFilter}>Lomo</button>
+					</div>
 					<div className="col-md-12 form-group">
 						<label>Hue</label>
 				    	<input id="hue"
