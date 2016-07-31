@@ -1,0 +1,33 @@
+html, body, * {
+	margin:0px;
+	padding:0px;
+}
+.root {
+	max-width: 100%;
+}
+.wrapper {
+	height: 100%;
+	width:98%;
+	margin:auto;
+	overflow: hidden;
+}
+#controls {
+	min-height: 100%;
+	height: 100%;
+}
+#canvas-wrapper {
+	background-color: #333333;
+	min-height: 100%;
+}
+
+#canvas-inner {
+	padding:15px;
+	width:100%;
+	position: relative;
+}
+#controls .controls-wrapper {
+	padding:10px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 100%;
+}
