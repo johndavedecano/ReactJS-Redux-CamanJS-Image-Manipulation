@@ -5,7 +5,7 @@ import Main from './views/Main';
 
 export default (
     <Route component={App}>
-		<Route name="main" component={Main} path="/" />
+	<Route name="main" component={Main} path="/" />
         <Redirect from="/index.html" to="/"/>
         <Redirect from="/*/" to="/*"/>
     </Route>
